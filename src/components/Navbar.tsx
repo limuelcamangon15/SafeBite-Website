@@ -18,7 +18,7 @@ export default function Navbar() {
           </a>
         </div>
 
-        <button className="bg-primary text-white px-4 py-2 rounded-lg cursor-pointer bg-[#2ab407] hover:bg-[#2ab407a4] text-sm font-semibold hover:scale-105 transition">
+        <button className="bg-primary text-black px-4 py-2 rounded-lg cursor-pointer bg-[#2ab407] hover:bg-[#2ab407a4] text-sm font-semibold hover:scale-105 transition">
           Get App
         </button>
       </div>

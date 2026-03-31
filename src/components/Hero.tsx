@@ -20,7 +20,7 @@ export default function Hero() {
 
         <div className="mt-8 flex justify-center gap-4 flex-wrap">
           {/* Play Store Button */}
-          <button className="flex items-center gap-3 bg-[#2ab407] text-white px-6 py-3 cursor-pointer rounded-full text-sm font-semibold hover:bg-[#2ab407cc] hover:scale-105 transition-all duration-300 shadow-lg shadow-green-500/20">
+          <button className="flex items-center gap-3 bg-[#2ab407] text-black px-6 py-3 cursor-pointer rounded-full text-sm font-semibold hover:bg-[#2ab407cc] hover:scale-105 transition-all duration-300 shadow-lg shadow-green-500/20">
             <FaGooglePlay size={18} />
             <span>Get on Play Store</span>
           </button>
