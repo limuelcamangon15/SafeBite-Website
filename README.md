@@ -1,73 +1,56 @@
-# React + TypeScript + Vite
+# SafeBite — Eat Safe. Live Better.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Marketing website for **SafeBite**, a mobile food-allergen scanner. Scan food instantly, detect allergens, and make smarter choices — backed by community reports and machine intelligence.
 
-Currently, two official plugins are available:
+## Sections
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Single-page site (`src/App.tsx`): Navbar → Hero → capability ticker → Why we built this (01) → Features (02) → How it works (03) → Community (04) → Download CTA (05) → Footer.
 
-## React Compiler
+- iOS app status: **coming soon** (App Store button is intentionally disabled)
+- Android: Google Play button in the CTA section
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack
 
-## Expanding the ESLint configuration
+| Layer    | Choice                                                        |
+| -------- | ------------------------------------------------------------- |
+| UI       | React 19 + TypeScript (strict)                                |
+| Build    | Vite 8                                                        |
+| Styling  | Tailwind CSS v4 (CSS-first, custom `font-display` theme token)|
+| Motion   | Framer Motion (basic springs, reduced-motion aware)           |
+| Icons    | Lucide (product UI) + react-icons (official brand marks only) |
+| Type     | Bricolage Grotesque (display) + Inter (body), via Google Fonts|
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+| Script          | What it does              |
+| --------------- | ------------------------- |
+| `npm run dev`   | Start the dev server      |
+| `npm run build` | Type-check + production build (`dist/`) |
+| `npm run lint`  | Run ESLint                |
+| `npm run preview` | Preview the production build |
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project structure
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+index.html                  Title, favicon, fonts, SEO/OG meta
+public/safebite-icon.png    Official logo (favicon + apple-touch-icon)
+src/App.tsx                 Page composition, capability ticker, MotionConfig
+src/components/            Navbar, Hero, WhyBuilt, Features,
+                           HowItWorks, Community, CTA, Footer
+src/index.css               Tailwind import, theme, grain, marquee,
+                           focus ring, reduced-motion rules
+AGENTS.md                   Working conventions for AI coding agents
+```
+
+## Powered by
+
+- [Open Food Facts](https://world.openfoodfacts.org/) — open food product database
+- Google Machine Learning — ingredient and allergen intelligence
+- [Groq AI](https://groq.com/) — real-time reasoning at scan speed
+
+Developed by **Concurrent**. © SafeBite. All rights reserved.

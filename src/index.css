@@ -1,7 +1,58 @@
 @import "tailwindcss";
 
-/* Optional: custom styles */
+@theme {
+  --font-display: "Bricolage Grotesque", "SF Pro", system-ui, sans-serif;
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "SF Pro", system-ui,
+    sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: #151515;
+  background-color: #0b0f0c;
   color: white;
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background-color: #2ab407;
+  color: black;
+}
+
+:focus-visible {
+  outline: 2px solid #2ab407;
+  outline-offset: 3px;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee-track {
+    animation: none;
+  }
 }
